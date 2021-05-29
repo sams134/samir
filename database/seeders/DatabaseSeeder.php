@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Materials\Lipseal;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Seeder;
 
@@ -23,8 +24,10 @@ class DatabaseSeeder extends Seeder
        /*  $this->call(UserSeeder::class);
         $this->call(AreaSeeder::class);
         $this->call(StatusSeeder::class);
-        $this->call(MachineSeeder::class); */
+        $this->call(MachineSeeder::class); 
         $this->call(BearingSeeder::class);
+       $this->call(LipsealSeeder::class); */
+       $this->call(GreaseSeeder::class);
 
     }
 }
