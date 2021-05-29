@@ -30,21 +30,45 @@ class BearingSeeder extends Seeder
                                 [Bearing::SEALS_NO_SEAL,Bearing::SEALS_2RS1,Bearing::SEALS_ZZ],
                                 [Bearing::RADIAL_CLERANCE_C2,Bearing::RADIAL_CLERANCE_C3],
                                 [Bearing::CAGE_METAL],
-                                [0,1]);
+                                [0,1]); // snap rings
         $this->bearing_creator(['60','62','63'],
                                 6,10,
                                 [Bearing::SEALS_NO_SEAL,Bearing::SEALS_2RS1,Bearing::SEALS_ZZ],
                                 [Bearing::RADIAL_CLERANCE_C2,Bearing::RADIAL_CLERANCE_C3],
                                 [Bearing::CAGE_METAL],
-                                [0,1],
-                                [0,1]);                    
+                                [0,1], // snap rings
+                                [0,1]);    // high temperature                
         $this->bearing_creator(['60','62','63'],
-                                11,15,
+                                11,14,
                                 [Bearing::SEALS_NO_SEAL,Bearing::SEALS_2RS1,Bearing::SEALS_ZZ],
                                 [Bearing::RADIAL_CLERANCE_C2,Bearing::RADIAL_CLERANCE_C3,Bearing::RADIAL_CLERANCE_C4],
                                 [Bearing::CAGE_METAL,Bearing::CAGE_BRONZE],
-                                [0],
-                                [0,1]);     
+                                [0], // snap rings
+                                [0,1]);  // high temperature
+        $this->bearing_creator(['60'],
+                                15,19,
+                                [Bearing::SEALS_NO_SEAL,Bearing::SEALS_2RS1,Bearing::SEALS_ZZ],
+                                [Bearing::RADIAL_CLERANCE_C2,Bearing::RADIAL_CLERANCE_C3,Bearing::RADIAL_CLERANCE_C4],
+                                [Bearing::CAGE_METAL,Bearing::CAGE_BRONZE],
+                                [0], // snap rings
+                                [0,1]);     // high temperature
+        $this->bearing_creator(['62','63'],
+                                15,19,
+                                [Bearing::SEALS_NO_SEAL,Bearing::SEALS_2RS1,Bearing::SEALS_ZZ],
+                                [Bearing::RADIAL_CLERANCE_C2,Bearing::RADIAL_CLERANCE_C3,Bearing::RADIAL_CLERANCE_C4],
+                                [Bearing::CAGE_METAL,Bearing::CAGE_BRONZE],
+                                [0], // snap rings
+                                [0,1], // high temperature
+                                [0,1]); // insulated;     
+        $this->bearing_creator(['62','63'],
+                                20,30,
+                                [Bearing::SEALS_NO_SEAL],
+                                [Bearing::RADIAL_CLERANCE_C2,Bearing::RADIAL_CLERANCE_C3,Bearing::RADIAL_CLERANCE_C4],
+                                [Bearing::CAGE_METAL,Bearing::CAGE_BRONZE],
+                                [0], // snap rings
+                                [0], // high temperature
+                                [0,1], // insulated;  
+                                2); // step   
     }
     public function create_seals($seals){
         switch ($seals)
@@ -96,11 +120,11 @@ class BearingSeeder extends Seeder
     {
         return $insulated==1?" VL0241":"";
     }
-    public function bearing_creator($types,$min_no,$max_no,$seals,$clerances,$cages,$snapRings=[0],$highTemperatures=[0],$insulated=[0])
+    public function bearing_creator($types,$min_no,$max_no,$seals,$clerances,$cages,$snapRings=[0],$highTemperatures=[0],$insulated=[0],$step=1)
     {
         $deepGroove = $types;
         foreach ($deepGroove as $type)
-            for($cont = $min_no;$cont <= $max_no;$cont++)   
+            for($cont = $min_no;$cont <= $max_no;$cont+=$step)   
                 foreach ($seals as $seal)
                     foreach($clerances as $clerance)
                         foreach($cages as $cage)
