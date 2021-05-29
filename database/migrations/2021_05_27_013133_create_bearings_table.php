@@ -16,11 +16,14 @@ class CreateBearingsTable extends Migration
     {
         Schema::create('bearings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->enum('seals',[Bearing::SEALS_NO_SEAL,Bearing::SEALS_ZZ,Bearing::SEALS_2RS1,Bearing::SEALS_Z])->default(Bearing::SEALS_NO_SEAL);
-            $table->enum('radial_clerance',[Bearing::RADIAL_CLERANCE_C2,Bearing::RADIAL_CLERANCE_C3,Bearing::RADIAL_CLERANCE_C4])->default(Bearing::RADIAL_CLERANCE_C2);
+            $table->string('name',100);
+            $table->string('full_designation')->nullable();
+            $table->tinyInteger('seals')->default(Bearing::SEALS_NO_SEAL);
+            $table->tinyInteger('radial_clerance')->default(Bearing::RADIAL_CLERANCE_C2);
+            $table->tinyInteger('cage')->default(Bearing::CAGE_METAL);
             $table->tinyInteger('snap_ring')->default(0);
             $table->tinyInteger('high_temperature_grease')->default(0);
+            $table->tinyInteger('insulated')->default(0);
             $table->timestamps();
         });
     }

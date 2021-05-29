@@ -17,5 +17,10 @@ class Bearing extends Model
     public const RADIAL_CLERANCE_C3 = 1;
     public const RADIAL_CLERANCE_C4 = 2;
 
+    public const CAGE_METAL = 1;
+    public const CAGE_PLASTIC = 2;
+    public const CAGE_BRONZE = 3;
+
+
 
 }

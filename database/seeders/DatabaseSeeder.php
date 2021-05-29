@@ -19,10 +19,11 @@ class DatabaseSeeder extends Seeder
         Storage::deleteDirectory('machines');
         Storage::makeDirectory('machines');
         // \App\Models\User::factory(10)->create();
-        $this->call(UserSeeder::class);
+
+       /*  $this->call(UserSeeder::class);
         $this->call(AreaSeeder::class);
         $this->call(StatusSeeder::class);
-        $this->call(MachineSeeder::class);
+        $this->call(MachineSeeder::class); */
         $this->call(BearingSeeder::class);
 
     }
