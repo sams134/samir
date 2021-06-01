@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Internal\Job_type;
 use Illuminate\Database\Seeder;
 
-class JobTypeSeeder extends Seeder
+class JobSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +14,5 @@ class JobTypeSeeder extends Seeder
     public function run()
     {
         //
-        
-        
     }
 }

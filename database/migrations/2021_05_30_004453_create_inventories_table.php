@@ -81,6 +81,8 @@ class CreateInventoriesTable extends Migration
             $table->tinyInteger('bolts')->default(1);
             $table->string('bolts_comment')->nullable();
 
+            
+
             $table->timestamps();
         });
     }

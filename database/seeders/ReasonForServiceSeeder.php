@@ -35,6 +35,9 @@ class ReasonForServiceSeeder extends Seeder
         Reason_for_service::create(['name'=>'Mantenimiento Preventivo, por análisis predictivo']);
         Reason_for_service::create(['name'=>'Mantenimiento Preventivo, por ruido o temperatura']);
         Reason_for_service::create(['name'=>'Mantenimiento Preventivo, por vibración']);
-        Reason_for_service::create(['name'=>'Mantenimiento Preventivo, por vibración']);
+        Reason_for_service::create(['name'=>'Mantenimiento Preventivo, por golpe']);
+        Reason_for_service::create(['name'=>'Rediseño, Cambio de voltaje o velocidad']);
+        Reason_for_service::create(['name'=>'Rediseño, Cambio a inverter duty']);
+        
     }
 }
