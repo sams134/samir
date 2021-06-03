@@ -2,17 +2,17 @@
 
 namespace Database\Factories\Internal;
 
-use App\Models\Internal\Job;
+use App\Models\Internal\Provider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class JobFactory extends Factory
+class ProviderFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Job::class;
+    protected $model = Provider::class;
 
     /**
      * Define the model's default state.
@@ -23,7 +23,10 @@ class JobFactory extends Factory
     {
         return [
             //
-            'marks' => $this->faker->paragraph(2)
+            'name' => $this->faker->word(),
+            'address' => $this->faker->address(),
+            'main_contact' => $this->faker->name(),
+            'rating' => $this->faker->numberBetween(2,5)
         ];
     }
 }

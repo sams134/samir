@@ -29,7 +29,11 @@ class DatabaseSeeder extends Seeder
        $this->call(LipsealSeeder::class); 
        $this->call(GreaseSeeder::class);*/
 
-       $this->call(JobTypeSeeder::class);
+       //internal
+       $this->call(JobTypeSeeder::class); 
+       $this->call(JobSeeder::class);
+       $this->call(MaterialSeeder::class);
+     
 
     }
 }

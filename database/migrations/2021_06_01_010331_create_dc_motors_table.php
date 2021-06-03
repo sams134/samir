@@ -23,7 +23,7 @@ class CreateDcMotorsTable extends Migration
             $table->string('amps_armature',30)->nullable();
             $table->string('volts_field',30)->nullable();
             $table->string('amps_field',30)->nullable();
-            $table->tinyInteger('connection_type',30)->nullable();
+            $table->tinyInteger('connection_type')->nullable();
             $table->tinyInteger('insulation_class')->nullable();
             $table->string('serial',100)->nullable();
             $table->string('model',100)->nullable();

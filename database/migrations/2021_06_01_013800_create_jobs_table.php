@@ -15,6 +15,14 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
+            $table->string('year',10);
+            $table->string('os',10);
+            $table->date('date_received');
+            $table->date('date_required')->nullable();
+            $table->string('marks')->nullable();
+            $table->unsignedBigInteger('job_type_id')->nullable();
+
+            $table->foreign('job_type_id')->references('id')->on('job_types')->onDelete('set null');
             $table->timestamps();
         });
     }
