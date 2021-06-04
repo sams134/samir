@@ -18,16 +18,25 @@ class UserSeeder extends Seeder
     {
         //
         $user = User::create([
+            'name' => 'Ajemaya',
+            'email' => 'ajemaya@gmail.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('ultima3616'),
+            'user_type_id' => 1
+        ]);
+        $user = User::create([
             'name' => 'Sam',
             'email' => 'sams134@gmail.com',
+            'email_verified_at' => now(),
             'password' => bcrypt('ultima3616'),
-        ]);
+            'user_type_id' => 2
+        ]);        
         $team = Team::create([
             'user_id' => $user->id,
             'name' => $user->name."'s Team",
             'personal_team' => 1
             ]);
-        $team->save();
+        
         $user->current_team_id = $team->id;
         $user->save();
        
@@ -37,7 +46,7 @@ class UserSeeder extends Seeder
             'phone' => '52076235',
             'user_id' => $user->id
             ]);
-        
+        User::factory(10)->create();
         
     }
 }

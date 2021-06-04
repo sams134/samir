@@ -24,8 +24,8 @@ class CreateInventoriesTable extends Migration
             $table->tinyInteger('endbracket_nde')->default(1);
             $table->string('endbracket_nde_comment')->nullable();
 
-            $table->tinyInteger('conection_box')->default(1);
-            $table->string('conection_box_comment')->nullable();
+            $table->tinyInteger('connection_box')->default(1);
+            $table->string('connection_box_comment')->nullable();
 
             $table->tinyInteger('coupling')->default(1);
             $table->string('coupling_comment')->nullable();

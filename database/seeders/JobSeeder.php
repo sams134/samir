@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\External\Customer;
 use App\Models\Internal\Job;
 use App\Models\Internal\Job_type;
 use Carbon\Carbon;
@@ -20,6 +21,7 @@ class JobSeeder extends Seeder
         //
         $date = new DateTime('2021-01-01');
         $job_types = Job_type::all();
+        $customers = Customer::all();
         while ($date < now())
         {
             
@@ -46,7 +48,9 @@ class JobSeeder extends Seeder
                     'os' => str_pad("".$new_os++,4,"0",STR_PAD_LEFT),
                     'date_received' => $date,
                     'date_required' => $dateRequired,
-                    'job_type_id' => $job_types->random()->id
+                    'job_type_id' => $job_types->random()->id,
+                    'auth_by_user' => 2,
+                    'customer_id' => $customers->random()->id,
                 ]); 
             $date->modify("+1 day");
 

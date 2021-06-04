@@ -15,20 +15,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // crear directorios
         Storage::deleteDirectory('logos');
         Storage::makeDirectory('logos');
         Storage::deleteDirectory('machines');
         Storage::makeDirectory('machines');
-        // \App\Models\User::factory(10)->create();
+        
+        //creacion de usuarios
+        $this->call(UserTypeSeeder::class);
+        $this->call(UserSeeder::class);
 
-         $this->call(UserSeeder::class);
+
+        // external      
        /* $this->call(AreaSeeder::class);
         $this->call(StatusSeeder::class);
         $this->call(MachineSeeder::class); 
         $this->call(BearingSeeder::class);
        $this->call(LipsealSeeder::class); 
-       $this->call(GreaseSeeder::class);*/
-
+       $this->call(GreaseSeeder::class); */
+        $this->call(CustomerSeeder::class);
        //internal
        $this->call(JobTypeSeeder::class); 
        $this->call(JobSeeder::class);

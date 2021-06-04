@@ -20,9 +20,14 @@ class CreateJobsTable extends Migration
             $table->date('date_received');
             $table->date('date_required')->nullable();
             $table->string('marks')->nullable();
+            $table->string('auth_by_customer')->nullable();
             $table->unsignedBigInteger('job_type_id')->nullable();
+            $table->unsignedBigInteger('auth_by_user')->nullable();
+            $table->unsignedBigInteger('customer_id');
 
             $table->foreign('job_type_id')->references('id')->on('job_types')->onDelete('set null');
+            $table->foreign('auth_by_user')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->timestamps();
         });
     }

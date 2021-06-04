@@ -23,7 +23,8 @@ class JobFactory extends Factory
     {
         return [
             //
-            'marks' => $this->faker->paragraph(2)
+            'marks' => $this->faker->paragraph(2),
+            'auth_by_customer' => $this->faker->name()
         ];
     }
 }
