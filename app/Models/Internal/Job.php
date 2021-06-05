@@ -31,6 +31,22 @@ class Job extends Model
     {
         return $this->hasOne('App\Models\Internal\Inventory');
     }
+    public function ac_motor()
+    {
+        return $this->hasOne('App\Models\Internal\Ac_motor');
+    }
+    public function dc_motor()
+    {
+        return $this->hasOne('App\Models\Internal\Dc_motor');
+    }
+    public function generator()
+    {
+        return $this->hasOne('App\Models\Internal\Generator');
+    }
+    public function transformer()
+    {
+        return $this->hasOne('App\Models\Internal\Transformer');
+    }
     // relaciones muchos a muchos
     public function priorities()
     {

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Ac_motor extends Model
 {
     use HasFactory;
+    //relaciones 1 a 1 inversas
+    public function job()
+    {
+        return $this->belongsTo('App\Models\Internal\Job');
+    }
 }

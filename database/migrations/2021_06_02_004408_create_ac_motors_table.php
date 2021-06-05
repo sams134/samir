@@ -34,6 +34,9 @@ class CreateAcMotorsTable extends Migration
             $table->tinyInteger('phases')->nullable();
             $table->integer('run_capacitor')->nullable();
             $table->integer('start_capacitor')->nullable();
+
+            $table->unsignedBigInteger('job_id');
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -27,6 +27,9 @@ class CreateDcMotorsTable extends Migration
             $table->tinyInteger('insulation_class')->nullable();
             $table->string('serial',100)->nullable();
             $table->string('model',100)->nullable();
+
+            $table->unsignedBigInteger('job_id');
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
             
             $table->timestamps();
         });
