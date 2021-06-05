@@ -28,12 +28,12 @@ class DatabaseSeeder extends Seeder
 
 
         // external      
-       /* $this->call(AreaSeeder::class);
+        $this->call(AreaSeeder::class);
         $this->call(StatusSeeder::class);
         $this->call(MachineSeeder::class); 
         $this->call(BearingSeeder::class);
        $this->call(LipsealSeeder::class); 
-       $this->call(GreaseSeeder::class); */
+       $this->call(GreaseSeeder::class); 
         $this->call(CustomerSeeder::class);
        //internal
        $this->call(PrioritySeeder::class);

@@ -16,8 +16,8 @@ class JobTypeSeeder extends Seeder
     {
         //
         Job_type::create(['name'=>'Bobinado']);
-        Job_type::create(['name'=>'Manteniiento Completo']);
-        Job_type::create(['name'=>'Manteniiento Eléctrico']);
+        Job_type::create(['name'=>'Mantenimiento Completo']);
+        Job_type::create(['name'=>'Mantenimiento Eléctrico']);
         Job_type::create(['name'=>'Mantenimiento Mecánico']);
         Job_type::create(['name'=>'Balanceo Dinámico']);
         Job_type::create(['name'=>'Soldadura']);

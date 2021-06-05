@@ -22,7 +22,7 @@ class MachineSeeder extends Seeder
         $areas = Area::all();
         $status = Status::all();
         foreach ($areas as  $area) {
-            $machines = Machine::factory(5)->create(['area_id'=>$area->id]);
+            $machines = Machine::factory(random_int(1,20))->create(['area_id'=>$area->id]);
             foreach ($machines as $machine){
                 
                 $machine->statuses()->attach($status->random()->id,['date_changed'=>now(),'condition'=>'2']);

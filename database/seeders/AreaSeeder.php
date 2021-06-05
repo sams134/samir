@@ -30,12 +30,12 @@ class AreaSeeder extends Seeder
         Area::factory(1)->create(['name'=>'Linea 1','plant_id'=>$plant[0]->id]);
         Area::factory(1)->create(['name'=>'Evazados AB','plant_id'=>$plant[0]->id]);
         Area::factory(1)->create(['name'=>'Tetrapack','plant_id'=>$plant[0]->id]);
-        Customer::factory(2)->create();
+        Customer::factory(100)->create();
         $customers = Customer::all();
         foreach ($customers as $customer) {
-            $plants = Plant::factory(2)->create(['customer_id'=>$customer->id]);
+            $plants = Plant::factory(random_int(1,2))->create(['customer_id'=>$customer->id]);
             foreach ($plants as $plant) {
-                $areas = Area::factory(2)->create(['plant_id' => $plant->id]);
+                $areas = Area::factory(random_int(1,5))->create(['plant_id' => $plant->id]);
             }
         }
         
