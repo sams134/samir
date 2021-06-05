@@ -41,11 +41,21 @@ class InventoryFactory extends Factory
             'rotor' => $this->faker->randomElement([Job::INV_GOOD,job::INV_DAMAGED,job::INV_MISSING,job::INV_DONT_USE]),
             'slip_rings' => $this->faker->randomElement([Job::INV_GOOD,job::INV_DAMAGED,job::INV_DONT_USE]),
             'capacitor' => $this->faker->randomElement([job::INV_DONT_USE,Job::INV_TO_EVALUATE]),
-            'brush_holder' => $this->faker->randomElement([job::INV_DONT_USE,Job::INV_TO_EVALUATE]),
+            'brush_holders' => $this->faker->randomElement([job::INV_DONT_USE,Job::INV_TO_EVALUATE]),
             'base' => $this->faker->randomElement([job::INV_DONT_USE,Job::INV_TO_EVALUATE]),
             'brushes' => $this->faker->randomElement([job::INV_DONT_USE,Job::INV_TO_EVALUATE]),
             'terminal_block' => $this->faker->randomElement([Job::INV_GOOD,job::INV_DAMAGED,job::INV_MISSING]),
             'bolts' => $this->faker->randomElement([Job::INV_GOOD,job::INV_DAMAGED,job::INV_MISSING]),
+            'frame_comment' => $this->faker->randomElement([null,$this->faker->sentence()],null,null),
+            'endbracket_de_comment' => $this->faker->randomElement([null,$this->faker->sentence()],null,null),
+            'endbracket_nde_comment' => $this->faker->randomElement([null,$this->faker->sentence()],null,null),
+            'connection_box_comment' => $this->faker->randomElement([null,$this->faker->sentence()],null,null),
+            'coupling_comment' => $this->faker->randomElement([null,$this->faker->sentence()],null,null),
+            'shaft_comment' => $this->faker->randomElement([null,$this->faker->sentence()],null,null),
+            'fan_comment' => $this->faker->randomElement([null,$this->faker->sentence()],null,null),
+            'fan_cover_comment' => $this->faker->randomElement([null,$this->faker->sentence()],null,null),
+            'rotor_comment' => $this->faker->randomElement([null,$this->faker->sentence()],null,null),
+            'bolts_comment' => $this->faker->randomElement([null,$this->faker->sentence()],null,null),
         ];
     }
 }

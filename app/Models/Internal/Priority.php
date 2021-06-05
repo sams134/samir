@@ -5,13 +5,13 @@ namespace App\Models\Internal;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Inventory extends Model
+class Priority extends Model
 {
     use HasFactory;
 
-    //relaciones 1 a 1 inversas
-    public function job()
+    // relacion muchos a muchos
+    public function jobs()
     {
-        return $this->belongsTo('App\Models\Internal\Job');
+        return $this->belongsToMany('App\Models\Internal\Job');
     }
 }

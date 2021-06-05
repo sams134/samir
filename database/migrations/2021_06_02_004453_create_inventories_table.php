@@ -81,7 +81,8 @@ class CreateInventoriesTable extends Migration
             $table->tinyInteger('bolts')->default(1);
             $table->string('bolts_comment')->nullable();
 
-            
+            $table->unsignedBigInteger('job_id');
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
 
             $table->timestamps();
         });

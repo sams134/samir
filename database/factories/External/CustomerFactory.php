@@ -28,7 +28,7 @@ class CustomerFactory extends Factory
             'invoice_to' => $name." S.A.",
             'nit'=>$this->faker->numerify('#######-#'),
             'address' => $this->faker->address(),
-            'logo_url'=> 'logos/'.$this->faker->image('public/storage/logos/',220,140,null,false),
+           // 'logo_url'=> 'logos/'.$this->faker->image('public/storage/logos/',220,140,null,false),
         ];
     }
 }
