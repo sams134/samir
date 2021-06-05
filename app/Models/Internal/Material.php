@@ -15,9 +15,15 @@ class Material extends Model
     public const PRODUCT_BUYABLE_INPUT = 4; // INSUMO CONSUMO, 
     public const PRODUCT_SELLABLE = 5; // PRODUCTO FABRICADO
 
+    //relacion uno a muchos inversa
+    public function material_type()
+    {
+        return $this->belongsTo('App\Models\Internal\Material_type');
+    }
     //relacion muchos a muchos
     public function providers()
     {
         return $this->belongsToMany('App\Models\Internal\Provider');
     }
+
 }

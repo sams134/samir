@@ -13,4 +13,9 @@ class Pump extends Model
     public const PUMP_TYPE_SUBMERSIBLE = 2;
     public const PUMP_TYPE_MULTISTAGE = 3;
     public const PUMP_TYPE_OTHER = 4;
+
+    public function job()
+    {
+        return $this->belongsTo('App\Models\Internal\Job');
+    }
 }

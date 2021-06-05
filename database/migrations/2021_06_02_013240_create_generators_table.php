@@ -27,6 +27,8 @@ class CreateGeneratorsTable extends Migration
             $table->tinyInteger('generator_type')->nullable();
             $table->string('mfg_unit')->nullable();
             $table->string('volts_exitation')->nullable();
+            $table->unsignedBigInteger('job_id');
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
             $table->timestamps();
         });
     }

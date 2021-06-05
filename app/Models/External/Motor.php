@@ -22,4 +22,8 @@ class Motor extends Model
     public const REALHP = 1;
     public const APROXHP = 0;
     
+    public function machine()
+    {
+        return $this->belongsTo('App\Models\External\Machine');
+    }
 }

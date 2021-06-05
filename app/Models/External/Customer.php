@@ -11,8 +11,13 @@ class Customer extends Model
 
     protected $guarded = ['id'];
 
+    // relacion uno a muchos
     public function plants()
     {
         return $this->hasMany('App\Models\External\Plant');
+    }
+    public function jobs()
+    {
+        return $this->hasMany('App\Models\Internal\Job');
     }
 }

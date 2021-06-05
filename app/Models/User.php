@@ -59,8 +59,20 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    // relacion 1 a 1
     public function profile()
     {
         return $this->hasOne('App\Models\Profile');
+    }
+
+    // relacion 1 a muchos inversa
+    public function user_type()
+    {
+        return $this->belongsTo('App\Models\User_type');
+    }
+    // relaciones muchos a muchos
+    public function assignments()
+    {
+        return $this->belongsToMany('App\Models\Job','assignments','assigned_to_id');
     }
 }

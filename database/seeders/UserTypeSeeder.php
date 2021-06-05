@@ -16,7 +16,8 @@ class UserTypeSeeder extends Seeder
     {
         //
         User_type::create(['name' => 'Cliente']);
-        User_type::create(['name' => 'Personal CME']);
+        User_type::create(['name' => 'Administracion CME']);
+        User_type::create(['name' => 'Tecnico CME']);
         User_type::create(['name' => 'Proveedor']);
         User_type::create(['name' => 'Taller Asociado']);
     }

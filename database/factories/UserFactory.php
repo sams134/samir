@@ -30,7 +30,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => bcrypt('ultima'), // password
             'remember_token' => Str::random(10),
-            'user_type_id' => $this->faker->randomElement([1,2]),
+            'user_type_id' => $this->faker->randomElement([1,2,3]),
         ];
     }
 

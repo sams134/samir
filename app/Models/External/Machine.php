@@ -17,6 +17,10 @@ class Machine extends Model
     {
         return $this->belongsToMany('App\Models\External\Status');
     }
+    public function motors()
+    {
+        return $this->hasMany('App\Models\External\Motor');
+    }
     public function photos()
     {
         return $this->morphMany('App\Models\Photo','photoable');

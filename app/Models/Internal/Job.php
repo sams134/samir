@@ -47,9 +47,30 @@ class Job extends Model
     {
         return $this->hasOne('App\Models\Internal\Transformer');
     }
+    public function pump()
+    {
+        return $this->hasOne('App\Models\Internal\Pump');
+    }
+    // relacion 1 a muchos inversa
+    public function customer()
+    {
+        return $this->belongsTo('App\Models\External\Customer');
+    }
+    public function job_type()
+    {
+        return $this->belongsTo('App\Models\Internal\Job_type');
+    }
+    public function reason_for_service()
+    {
+        return $this->belongsTo('App\Models\Internal\Reason_for_service');
+    }
     // relaciones muchos a muchos
     public function priorities()
     {
         return $this->belongsToMany('App\Models\Internal\Priority')->withTimestamps();
+    }
+    public function assignments()
+    {
+        return $this->belongsToMany('App\Models\User','assignments','job_id','assigned_to_id')->withTimestamps();
     }
 }

@@ -7,6 +7,7 @@ use App\Models\Internal\Inventory;
 use App\Models\Internal\Job;
 use App\Models\Internal\Job_type;
 use App\Models\Internal\Priority;
+use App\Models\User;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Database\Seeder;
@@ -25,6 +26,9 @@ class JobSeeder extends Seeder
         $job_types = Job_type::all();
         $customers = Customer::all();
         $priorities = Priority::all();
+        $tecnicos = User::whereHas('user_type',function($q){
+            $q->where('user_type_id','=',3);
+        })->get();
         while ($date < now())
         {
             
@@ -47,19 +51,21 @@ class JobSeeder extends Seeder
              $dateRequired = date('Y-m-d', strtotime($date->format('Y-m-d') . ' +'.$random_time_expected_for_repair.' day'));
              for ($i=0;$i<=$number_of_motors;$i++)
              {
+                $job_type = $job_types->random()->id;
                 Job::factory(1)->create([
                     'year' => $new_year,
                     'os' => str_pad("".$new_os++,4,"0",STR_PAD_LEFT),
                     'date_received' => $date,
                     'date_required' => $dateRequired,
-                    'job_type_id' => $job_types->random()->id,
+                    'job_type_id' => $job_type,
                     'auth_by_user' => 2,
                     'customer_id' => $customers->random()->id,
-                ])->each(function ($job) use ($priorities){
+                ])->each(function ($job) use ($priorities,$tecnicos){
                     Inventory::factory(1)->create(['job_id'=>$job->id])->each(function ($inv) use ($job){
                         $job->inventory()->save($inv);
                     });
                     $job->priorities()->attach([$priorities->random()->id]);
+                    $job->assignments()->attach($tecnicos->random()->id,['assigned_by_id'=>1]);
                 });
                 
                 
