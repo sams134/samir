@@ -26,6 +26,9 @@ class CreateSparesTable extends Migration
             $table->foreign('unit_id')->references('id')->on('units')->onDelete('set null');
 
             $table->unsignedBigInteger('spareable_id');
+            $table->string('spareable_type');
+
+            
             $table->timestamps();
         });
     }
